@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{{ $.Site.LanguageCode | default "en" }}">
+<head>
+    <meta charset="utf-8">
+    <title>{{ block "title" . }}{{ .Site.Title }} {{ with .Params.Title }} | {{ . }}{{ end }}{{ end }}</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great&amp;text=FelixNhrk" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=fallback&subset=latin-ext" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
+    {{ if .RSSLink }}
+    <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
+    <link href="{{ .RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}">
+    {{ end }}
+</head>
+<body>
+<div id="page">
+{{ partial "navigation.html" . }}
+<main id="main">
+{{ block "main" . }}{{ end }}
+</main>
+</div>
+</body>
+</html>
