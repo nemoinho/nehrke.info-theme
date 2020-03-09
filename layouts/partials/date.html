@@ -1,8 +1,6 @@
 <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z0700" }}">
     {{ if eq .Site.Language.Lang "de" }}
-        {{ .Date.Format "2" }}.
-        {{ index $.Site.Data.monate (printf "%d" .Date.Month) }}
-        {{ .Date.Format "2006" }}
+        {{ .Date.Format "2" }}. {{ index $.Site.Data.monate (printf "%d" .Date.Month) }} {{ .Date.Format "2006" }}
     {{ else }}
         {{ .Date.Format "January 2, 2006" }}
     {{ end }}

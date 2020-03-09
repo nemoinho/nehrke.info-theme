@@ -2,28 +2,23 @@
     <a href="#main">{{.Site.Params.goToMain}}</a>
     <div>
         <div>
-            <h1><a href="{{ "/" | absLangURL }}">{{ .Site.Title }}</a></h1>
+            <h1><a href="{{ "/" | relLangURL }}">{{ .Site.Title }}</a></h1>
             {{ with .Site.Params.description | safeHTML }}<p>{{.}}</p>{{ end }}
         </div>
-{{/* /}}
-        <nav>
-            <ul>
-                {{ with .Site.GetPage "section" "/" }}
-                <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-                {{ end }}
-                {{ range sort .Site.Sections "Title" }}
-                <li><a href="{{ .Permalink }}">{{ .Params.Title }}</a></li>
-                {{ end }}
-            </ul>
-        </nav>
-{{/* */}}
-        {{ range .Translations }}
-        <a class="language" href="{{ .Permalink }}">{{ .Language.Params.languageSwitch }}</a>
-        {{ end }}
+        <div id="language-switches">
+            <felix-icon>language</felix-icon>
+            {{ range .Translations }}
+            <a class="language" href="{{ .RelPermalink }}">{{ .Language.Params.languageSwitch }}</a>
+            {{ end }}
+        </div>
 
-        <ul>
+        <ul id="social-media">
             {{ range .Site.Params.social }}
-            <li><a href="{{ .link }}" class="icon icon-{{ .icon }}" target="_blank" rel="noopener noreferrer"><span>{{ .title }}</span></a></li>
+            <li>
+                <a href="{{ .link }}" title="{{ .title }}" target="_blank" rel="noopener noreferrer">
+                    <felix-icon>{{ .icon }}</felix-icon>
+                </a>
+            </li>
             {{ end }}
         </ul>
     </div>
