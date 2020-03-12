@@ -1,12 +1,5 @@
 {{ define "main" }}
 {{ range .Pages }}
-<article>
-    <h1><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
-    {{ partial "date" . }}
-    {{ .Summary }}
-    {{ if .Truncated }}
-    <a href="{{ .RelPermalink }}">Read More…</a>
-    {{ end }}
-</article>
+    {{ partial "blog-summary" . }}
 {{ end }}
 {{ end }}
