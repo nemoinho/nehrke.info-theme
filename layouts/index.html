@@ -1,8 +1,0 @@
-{{ define "main" }}
-    <section style="margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(127, 127, 127, .3);">
-    {{ .Page.Content }}
-    </section>
-    {{ range where .Site.RegularPages "Section" "blog" }}
-        {{ partial "blog-summary" . }}
-    {{ end }}
-{{ end }}
